@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
-<<<<<<< HEAD
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -149,9 +148,4 @@ long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
 #endif /* MAIN_H */
-=======
-#include <string.h>
-#include <unistd.h>
-int _print f ( const char *format, ...);
->>>>>>> 4f7d02e48a86a496a953a4d60d447894ee8e1858
 #endif
