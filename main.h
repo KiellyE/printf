@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
+<<<<<<< HEAD
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,7 +38,7 @@ struct fmt
 /**
  * typedef struct fmt fmt_t - struct op
  * struct format - match the conversation specifiers for printf
- * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, x)
+ * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
  * @f: type pointer to function for the conversion specifier
  *
  * @fmt: the format.
@@ -148,4 +149,9 @@ long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
 #endif /* MAIN_H */
+=======
+#include <string.h>
+#include <unistd.h>
+int _print f ( const char *format, ...);
+>>>>>>> 4f7d02e48a86a496a953a4d60d447894ee8e1858
 #endif
