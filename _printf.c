@@ -1,54 +1,54 @@
-nclude "main.h"
+#include "main.h"
 
 int _printf(const char *format, ...)
 {
-	    int characters_printed = 0;
-	        va_list args_list;
+    int characters_printed = 0;
+    va_list args_list;
 
-		    if (format == NULL)
-			            return (-1);
+    if (format == NULL)
+        return (-1);
 
-		        va_start(args_list, format);
+    va_start(args_list, format);
 
-			    while (*format)
-				        {
-						        if (*format != '%')
-								        {
-										            write(1, format, 1);
-											                characters_printed++;
-													        }
-							        else
-									        {
-											            format++;
-												                if (*format == '\0')
-															                break;
+    while (*format)
+    {
+        if (*format != '%')
+        {
+            write(1, format, 1);
+            characters_printed++;
+        }
+        else
+        {
+            format++;
+            if (*format == '\0')
+                break;
 
-														            if (*format == '%')
-																                {
-																			                write(1, format, 1);
-																					                characters_printed++;
-																							            }
-															                else if (*format == 'c')
-																		            {
-																				                    char c = va_arg(args_list, int);
-																						                    write(1, &c, 1);
-																								                    characters_printed++;
-																										                }
-																	            else if (*format == 's')
-																			                {
-																						                char *str = va_arg(args_list, char*);
-																								                int str_len = 0;
+            if (*format == '%')
+            {
+                write(1, format, 1);
+                characters_printed++;
+            }
+            else if (*format == 'c')
+            {
+                char c = va_arg(args_list, int);
+                write(1, &c, 1);
+                characters_printed++;
+            }
+            else if (*format == 's')
+            {
+                char *str = va_arg(args_list, char*);
+                int str_len = 0;
 
-																										                while (str[str_len] != '\0')
-																													                    str_len++;
+                while (str[str_len] != '\0')
+                    str_len++;
 
-																												                write(1, str, str_len);
-																														                characters_printed += str_len;
-																																            }
-																		            }
-								        format++;
-									    }
-			        va_end(args_list);
+                write(1, str, str_len);
+                characters_printed += str_len;
+            }
+        }
+        format++;
+    }
+    va_end(args_list);
 
-				    return characters_printed;
+    return characters_printed;
 }
