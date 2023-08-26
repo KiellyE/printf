@@ -69,11 +69,12 @@ int *_strcpy(char *dest, char *src);
 int _strlenc(const char *s);
 int rev_string(char *s);
 int _strlenc(const char *s);
-int write_exclusive(void);
+int write_handlers(void);
 int fix_handlers(va_list val);
 int string_printing(va_list val);
 int _putchar(char c);
-int _printf(const char *fmt, int *i,
+int _printf(const char *format, ...);
+int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
