@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * pointer_2 - prints an hexgecimal number.
- * @num: number to print.
- * Return: counter.
+ * HEX_speci - prints an hexadecimal number to stdout.
+ * @val: arguments.
+ * Return: counter value.
  */
-
-int pointer_2(unsigned int num)
+int HEX_speci(va_list val)
 {
 	int i;
 	int *array;
 	int counter = 0;
+	unsigned int num = va_arg(val, unsigned int);
 	unsigned int temp = num;
 
 	while (num / 16 != 0)
@@ -30,7 +30,7 @@ int pointer_2(unsigned int num)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
+		_std_output(array[i] + '0');
 	}
 	free(array);
 	return (counter);

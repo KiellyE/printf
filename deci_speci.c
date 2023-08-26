@@ -1,23 +1,24 @@
 #include "main.h"
 
 /**
- * betty_output - prints integer
+ * deci_speci - prints decimal
  * @args: argument to print
  * Return: number of characters printed
  */
 
-int betty_output(va_list args)
+int deci_speci(va_list args)
 {
-	unsigned int n = va_arg(args, unsigned int);
-	int num, last = n % 10, digit, exp = 1;
+	int n = va_arg(args, int);
+	int num, last = n % 10, digit;
 	int  i = 1;
+	int exp = 1;
 
 	n = n / 10;
 	num = n;
 
 	if (last < 0)
 	{
-		_putchar('-');
+		_std_output('-');
 		num = -num;
 		n = -n;
 		last = -last;
@@ -34,13 +35,13 @@ int betty_output(va_list args)
 		while (exp > 0)
 		{
 			digit = num / exp;
-			_putchar(digit + '0');
+			_std_output(digit + '0');
 			num = num - (digit * exp);
 			exp = exp / 10;
 			i++;
 		}
 	}
-	_putchar(last + '0');
+	_std_output(last + '0');
 
 	return (i);
 }

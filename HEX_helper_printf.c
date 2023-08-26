@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
- * printing_precision - prints a hexadecimal number.
- * @val: arguments.
- * Return: cointer.
+ * HEX_helper_printf - prints an hexadecimal number.
+ * @num: number to print.
+ * Return: counter.
  */
-int printing_precision(va_list val)
+int HEX_helper_printf(unsigned int num)
 {
 	int i;
 	int *array;
 	int counter = 0;
-	unsigned int num = va_arg(val, unsigned int);
 	unsigned int temp = num;
 
 	while (num / 16 != 0)
@@ -19,7 +18,7 @@ int printing_precision(va_list val)
 		counter++;
 	}
 	counter++;
-	array = (int *)malloc(counter * sizeof(int));
+	array = malloc(counter * sizeof(int));
 
 	for (i = 0; i < counter; i++)
 	{
@@ -30,8 +29,8 @@ int printing_precision(va_list val)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
+		_std_output(array[i] + '0');
 	}
 	free(array);
-	return counter;
+	return (counter);
 }

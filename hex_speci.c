@@ -1,12 +1,11 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * function_output - prints an octal number.
- * @val: the argument list.
- * Return: the number of characters printed.
+ * hex_speci - prints hexadecimal number to stdout.
+ * @val: arguments.
+ * Return: counter strigs.
  */
-int fuction_output(va_list val)
+int hex_speci(va_list val)
 {
 	int i;
 	int *array;
@@ -14,9 +13,9 @@ int fuction_output(va_list val)
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int temp = num;
 
-	while (num / 8 != 0)
+	while (num / 16 != 0)
 	{
-		num /= 8;
+		num /= 16;
 		counter++;
 	}
 	counter++;
@@ -24,12 +23,14 @@ int fuction_output(va_list val)
 
 	for (i = 0; i < counter; i++)
 	{
-		array[i] = temp % 8;
-		temp /= 8;
+		array[i] = temp % 16;
+		temp /= 16;
 	}
 	for (i = counter - 1; i >= 0; i--)
 	{
-		_putchar(array[i] + '0');
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_std_output(array[i] + '0');
 	}
 	free(array);
 	return (counter);

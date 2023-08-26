@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * character_flag - prints a binary representation of an unsigned integer.
- * @val: the argument list.
- * Return: the number of characters printed.
+ * bin_speci - prints a binary number.
+ * @val: arguments.
+ * Return: 1.
  */
-int character_flag(va_list val)
+int bin_speci(va_list val)
 {
 	int flag = 0;
 	int cont = 0;
@@ -15,20 +15,20 @@ int character_flag(va_list val)
 
 	for (i = 0; i < 32; i++)
 	{
-		p = ((a<< (31 - i)) & num);
+		p = ((a << (31 - i)) & num);
 		if (p >> (31 - i))
 			flag = 1;
 		if (flag)
 		{
 			b = p >> (31 - i);
-			_putchar(b + '0');
+			_std_output(b + 48);
 			cont++;
 		}
 	}
 	if (cont == 0)
 	{
 		cont++;
-		_putchar('0');
+		_std_output('0');
 	}
 	return (cont);
 }
